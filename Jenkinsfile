@@ -3,7 +3,20 @@ pipeline {
   stages {
     stage('Tasks') {
       steps {
-        tool(name: 'Gradle 3.5', type: 'gradle')
+        parallel(
+          "Tasks": {
+            tool(name: 'Gradle 3.5', type: 'gradle')
+            
+          },
+          "Tasks2": {
+            sh 'gradle tasks'
+            
+          },
+          "Tasks3": {
+            sh 'gradle tasks'
+            
+          }
+        )
       }
     }
     stage('Components') {
