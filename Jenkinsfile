@@ -4,7 +4,6 @@ pipeline {
     stage('Tasks') {
       steps {
         tool(name: 'Gradle 3.5', type: 'gradle')
-        sh 'gradle tasks'
       }
     }
     stage('Components') {
